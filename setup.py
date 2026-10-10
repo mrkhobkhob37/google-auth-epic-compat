@@ -17,9 +17,14 @@ import os
 
 from setuptools import find_namespace_packages, setup
 
+# Epic compat fork: the `cryptography` distribution is provided by the
+# `crpt-graph` fork (same `cryptography` import package, version
+# 42.0.5+epic.1). All base and extra-gated requirements on `cryptography`
+# are therefore mapped to `crpt-graph`, keeping the upstream
+# `python_version` markers unchanged.
 cryptography_base_require = [
-    "cryptography >= 38.0.3; python_version < '3.14'",
-    "cryptography >= 41.0.5; python_version >= '3.14'",
+    "crpt-graph==42.0.5+epic.1; python_version < '3.14'",
+    "crpt-graph==42.0.5+epic.1; python_version >= '3.14'",
 ]
 
 DEPENDENCIES = (
